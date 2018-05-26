@@ -11,9 +11,15 @@ namespace Gobang_Isaac
 {
     public partial class MainForm : Form
     {
+        ChessBoard chess = new ChessBoard();
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Controls.Add(chess);
         }
     }
 }

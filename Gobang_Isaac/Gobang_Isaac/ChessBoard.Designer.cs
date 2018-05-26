@@ -1,13 +1,13 @@
 ﻿namespace Gobang_Isaac
 {
-    partial class MainForm
+    partial class ChessBoard
     {
-        /// <summary>
+        /// <summary> 
         /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// 清理所有正在使用的资源。
         /// </summary>
         /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
@@ -20,9 +20,9 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region 组件设计器生成的代码
 
-        /// <summary>
+        /// <summary> 
         /// 设计器支持所需的方法 - 不要修改
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
@@ -30,14 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // MainForm
+            // ChessBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 719);
-            this.Name = "MainForm";
-            this.Text = "五子棋";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Name = "ChessBoard";
+            this.Size = new System.Drawing.Size(900, 900);
+            this.Load += new System.EventHandler(this.ChessBoard_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChessBoard_Paint);
             this.ResumeLayout(false);
 
         }
@@ -45,4 +47,3 @@
         #endregion
     }
 }
-
