@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Gobang_Isaac
 {
-    enum ChessColor
+    public enum ChessColor
     {
         Black,
         White,

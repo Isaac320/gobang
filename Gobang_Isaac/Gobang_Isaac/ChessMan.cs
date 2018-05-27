@@ -12,16 +12,18 @@ namespace Gobang_Isaac
        public static void DrawChessMan(Graphics g, ChessColor color,int PosX,int PosY)
         {
             Bitmap mybmp = new Bitmap(40, 40);
-            Graphics gobj = Graphics.FromImage(mybmp);
-            if(color==ChessColor.Black)
+            using (Graphics gobj = Graphics.FromImage(mybmp))
             {
-                gobj.DrawImage(ChessManPic,new Rectangle(0, 0, 40, 40), new Rectangle(23, 23, 70, 70), GraphicsUnit.Pixel);
+                if (color == ChessColor.Black)
+                {
+                    gobj.DrawImage(ChessManPic, new Rectangle(0, 0, 40, 40), new Rectangle(23, 23, 70, 70), GraphicsUnit.Pixel);
+                }
+                else
+                {
+                    gobj.DrawImage(ChessManPic, new Rectangle(0, 0, 40, 40), new Rectangle(95, 23, 70, 70), GraphicsUnit.Pixel);
+                }
             }
-            else
-            {
-                gobj.DrawImage(ChessManPic, new Rectangle(0, 0, 40, 40), new Rectangle(95, 23, 70, 70), GraphicsUnit.Pixel);
-            }
-            gobj.Dispose();
+           
             g.DrawImage(mybmp, PosX-20, PosY-20);
         }
     }

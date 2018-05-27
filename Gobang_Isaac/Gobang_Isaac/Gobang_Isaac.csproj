@@ -53,6 +53,7 @@
     <Compile Include="ChessEngine.cs" />
     <Compile Include="ChessMan.cs" />
     <Compile Include="ChessMatrix.cs" />
+    <Compile Include="IChessEngine.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
