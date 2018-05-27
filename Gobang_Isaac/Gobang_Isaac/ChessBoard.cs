@@ -17,6 +17,8 @@ namespace Gobang_Isaac
         public event DelClickPos ClickPos;
 
         object _lock = new object();
+
+        ChessColor chessState = ChessColor.Black;
         public ChessBoard()
         {
             InitializeComponent();
@@ -25,7 +27,8 @@ namespace Gobang_Isaac
 
         public void init()
         {
-            mybmp = new Bitmap(800, 800);        
+            mybmp = new Bitmap(800, 800);
+            chessState = ChessColor.Black;
             chessMx.init();
             using (Graphics gobj = Graphics.FromImage(mybmp))
             {
@@ -103,13 +106,15 @@ namespace Gobang_Isaac
        
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.X > 40 && e.Y > 40 && e.X < 630 && e.Y < 630)
+            if (chessState == ChessColor.Black)
             {
-                int XX = (e.X-40)/ 40;
-                int YY =(e.Y-40) / 40;
-                ClickPos(XX, YY);
-                DrawChessMan(ChessColor.Black, XX, YY);
-               
+                if (e.X > 40 && e.Y > 40 && e.X < 630 && e.Y < 630)
+                {
+                    int XX = (e.X - 40) / 40;
+                    int YY = (e.Y - 40) / 40;
+                    ClickPos(XX, YY);
+                    DrawChessMan(ChessColor.Black, XX, YY);                    
+                }
             }
         }
 
@@ -132,6 +137,14 @@ namespace Gobang_Isaac
                 if (WinnerColor != ChessColor.Space)
                 {
                     MessageBox.Show(WinnerColor.ToString());
+                }
+                if(p==ChessColor.Black)
+                {
+                    chessState = ChessColor.White;
+                }
+                else
+                {
+                    chessState = ChessColor.Black;
                 }
             }
         }

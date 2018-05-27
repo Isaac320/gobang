@@ -13,6 +13,7 @@ namespace Gobang_Isaac
     {
         ChessBoard chess = new ChessBoard();
         IChessEngine myChessEngine = new ChessEngine();
+        bool flag = true;
         public MainForm()
         {
             InitializeComponent();
