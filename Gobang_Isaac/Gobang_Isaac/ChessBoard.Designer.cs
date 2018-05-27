@@ -36,10 +36,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DoubleBuffered = true;
             this.Name = "ChessBoard";
-            this.Size = new System.Drawing.Size(900, 900);
+            this.Size = new System.Drawing.Size(700, 700);
             this.Load += new System.EventHandler(this.ChessBoard_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChessBoard_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ChessBoard_MouseDown);
             this.ResumeLayout(false);
 
         }

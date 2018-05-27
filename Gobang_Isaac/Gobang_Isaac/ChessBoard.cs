@@ -77,7 +77,7 @@ namespace Gobang_Isaac
             Graphics gobjqqq = e.Graphics;
             if (mybmp != null)
             {
-                gobjqqq.DrawImage(mybmp, 40, 0);
+                gobjqqq.DrawImage(mybmp, 0, 0);
 
             }
         }
@@ -85,6 +85,16 @@ namespace Gobang_Isaac
         private void ChessBoard_Load(object sender, EventArgs e)
         {
             init();
+        }
+
+       
+
+        private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
+        {
+            Graphics g = Graphics.FromImage(mybmp);
+            ChessMan.DrawChessMan(g, ChessManColor.White, e.X, e.Y);
+            g.Dispose();
+            Invalidate();
         }
     }
 }
