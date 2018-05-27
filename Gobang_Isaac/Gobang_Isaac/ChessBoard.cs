@@ -12,6 +12,7 @@ namespace Gobang_Isaac
     public partial class ChessBoard : UserControl
     {
         Bitmap mybmp = new Bitmap(800, 800);  //棋盘背景
+        ChessMatrix chessMx = new ChessMatrix();
         public ChessBoard()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace Gobang_Isaac
 
         private void init()
         {
+            chessMx.init();
             Graphics gobj = Graphics.FromImage(mybmp);
             // gobj.FillRectangle(Brushes.Yellow, 0, 0, 800, 800);
             for (int i = 0; i < 15; i++)
@@ -85,16 +87,37 @@ namespace Gobang_Isaac
         private void ChessBoard_Load(object sender, EventArgs e)
         {
             init();
+           
         }
-
        
-
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            Graphics g = Graphics.FromImage(mybmp);
-            ChessMan.DrawChessMan(g, ChessManColor.White, e.X, e.Y);
-            g.Dispose();
-            Invalidate();
+            if (e.X > 40 && e.Y > 40 && e.X < 630 && e.Y < 630)
+            {
+                int XX = (e.X-40)/ 40;
+                int YY =(e.Y-40) / 40;
+
+                DrawChessMan(ChessColor.Black, XX, YY);
+               
+            }
         }
+
+        private void DrawChessMan(ChessColor p,int XX,int YY)
+        {
+            if (chessMx.isSpace(XX, YY))
+            {
+                chessMx.ChessDown(p, XX, YY);
+                Graphics g = Graphics.FromImage(mybmp);
+                ChessMan.DrawChessMan(g, p, XX * 40 + 60, YY * 40 + 60);
+                g.Dispose();
+                Invalidate();
+                ChessColor WinnerColor = chessMx.win(XX, YY);
+                if (WinnerColor != ChessColor.Space)
+                {
+                    MessageBox.Show(WinnerColor.ToString());
+                }
+            }
+        }
+
     }
 }

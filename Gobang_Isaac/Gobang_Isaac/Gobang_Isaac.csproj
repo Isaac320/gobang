@@ -51,7 +51,7 @@
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="ChessMan.cs" />
-    <Compile Include="ChessManColor.cs" />
+    <Compile Include="ChessMatrix.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
