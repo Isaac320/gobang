@@ -50,6 +50,7 @@
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChessEngine.cs" />
     <Compile Include="ChessMan.cs" />
     <Compile Include="ChessMatrix.cs" />
     <Compile Include="MainForm.cs">
