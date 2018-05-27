@@ -26,6 +26,9 @@ namespace Gobang_Isaac
             chess.ClickPos += Chess_ClickPos;
 
             ((ChessEngine)myChessEngine).SetTurn_Time(1000);
+
+            chess.init();
+            myChessEngine.Start();
         }
 
         private void Chess_ClickPos(int X, int Y)

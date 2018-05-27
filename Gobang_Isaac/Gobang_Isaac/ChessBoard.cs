@@ -112,8 +112,11 @@ namespace Gobang_Isaac
                 {
                     int XX = (e.X - 40) / 40;
                     int YY = (e.Y - 40) / 40;
-                    ClickPos(XX, YY);
-                    DrawChessMan(ChessColor.Black, XX, YY);                    
+                    if(chessMx.isSpace(XX,YY))
+                    {
+                        ClickPos(XX, YY);
+                        DrawChessMan(ChessColor.Black, XX, YY);
+                    }                 
                 }
             }
         }
