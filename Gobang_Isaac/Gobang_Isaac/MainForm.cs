@@ -24,6 +24,8 @@ namespace Gobang_Isaac
             Controls.Add(chess);
             myChessEngine.GetBestMove += MyChessEngine_GetBestMove;
             chess.ClickPos += Chess_ClickPos;
+
+            ((ChessEngine)myChessEngine).SetTurn_Time(1000);
         }
 
         private void Chess_ClickPos(int X, int Y)
@@ -42,9 +44,6 @@ namespace Gobang_Isaac
             myChessEngine.Start();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ((ChessEngine)myChessEngine).SetTurn_Time(1000);
-        }
+       
     }
 }
