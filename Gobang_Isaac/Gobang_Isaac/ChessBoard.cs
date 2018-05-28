@@ -139,7 +139,7 @@ namespace Gobang_Isaac
                 ChessColor WinnerColor = chessMx.win(XX, YY);
                 if (WinnerColor != ChessColor.Space)
                 {
-                    MessageBox.Show(WinnerColor.ToString());
+                    MessageBox.Show(WinnerColor.ToString()+" win!");
                 }
                 if(p==ChessColor.Black)
                 {
